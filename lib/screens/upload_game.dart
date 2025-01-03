@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/content_service.dart';
-import '../models/content_model.dart';
+import '../models/game/content_model.dart';
 
 class UploadGameScreen extends StatefulWidget {
   @override

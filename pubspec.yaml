@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   http: ^0.13.4
+  firebase_core: ^3.9.0
   flutter:
     sdk: flutter
 

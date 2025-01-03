@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'game.dart';
-import 'widgets/buy_button.dart'; // Import BuyButton
+import '../widgets/buy_button.dart'; // Import BuyButton
 
 class DetailScreen extends StatelessWidget {
   final Game game;

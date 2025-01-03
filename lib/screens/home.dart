@@ -1,10 +1,10 @@
-import 'package:arkyn/models/game/DetailScreen.dart';
+import 'package:arkyn/widgets/DetailScreen.dart';
 import 'package:flutter/material.dart';
 import 'friends_screen.dart';
 import 'library_screen.dart';
 import 'profile_screen.dart';
-import '../models/game/game.dart'; // Import Game model
-import '../models/game/list_of_games.dart'; // Import list_of_games
+import '../widgets/game.dart'; // Import Game model
+import '../widgets/list_of_games.dart'; // Import list_of_games
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
