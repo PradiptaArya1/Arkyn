@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import 'dart:typed_data';
 
 class UploadGameScreen extends StatefulWidget {
   const UploadGameScreen({super.key});
@@ -17,27 +17,28 @@ class _UploadGameScreenState extends State<UploadGameScreen> {
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _aboutController = TextEditingController();
 
-  File? _gamePictureFile;
+  Uint8List? _gamePictureBytes;
   bool _isUploading = false;
 
-  // Fungsi untuk memilih gambar dari galeri
+  // Function to pick an image from the gallery
   Future<void> _pickImage() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
+      final bytes = await pickedFile.readAsBytes();
       setState(() {
-        _gamePictureFile = File(pickedFile.path);
+        _gamePictureBytes = bytes;
       });
     }
   }
 
-  // Fungsi untuk mengunggah data game ke Firebase
+  // Function to upload game data to Firebase
   Future<void> _uploadData() async {
     if (_nameController.text.isEmpty ||
         _categoryController.text.isEmpty ||
         _priceController.text.isEmpty ||
         _aboutController.text.isEmpty ||
-        _gamePictureFile == null) {
+        _gamePictureBytes == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please complete all fields')),
       );
@@ -49,14 +50,14 @@ class _UploadGameScreenState extends State<UploadGameScreen> {
     });
 
     try {
-      // Unggah gambar ke Firebase Storage
+      // Upload image to Firebase Storage
       final storageRef = FirebaseStorage.instance
           .ref()
           .child('game_pictures/${DateTime.now().millisecondsSinceEpoch}.jpg');
-      final uploadTask = await storageRef.putFile(_gamePictureFile!);
+      final uploadTask = await storageRef.putData(_gamePictureBytes!);
       final imageUrl = await uploadTask.ref.getDownloadURL();
 
-      // Unggah data ke Firestore
+      // Upload data to Firestore
       final gamesCollection = FirebaseFirestore.instance.collection('games');
       await gamesCollection.add({
         'name': _nameController.text,
@@ -77,7 +78,7 @@ class _UploadGameScreenState extends State<UploadGameScreen> {
       _priceController.clear();
       _aboutController.clear();
       setState(() {
-        _gamePictureFile = null;
+        _gamePictureBytes = null;
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -118,7 +119,7 @@ class _UploadGameScreenState extends State<UploadGameScreen> {
               {'label': 'Name', 'controller': _nameController},
               {'label': 'Category', 'controller': _categoryController},
               {'label': 'Price', 'controller': _priceController},
-              {'label': 'About', 'controller': _aboutController},
+              {'label': 'About', 'controller': _aboutController}
             ].map((field) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,7 +149,8 @@ class _UploadGameScreenState extends State<UploadGameScreen> {
             }),
             const Text(
               'Game Picture',
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             GestureDetector(
@@ -160,10 +162,10 @@ class _UploadGameScreenState extends State<UploadGameScreen> {
                   color: const Color(0xFF374151),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: _gamePictureFile == null
+                child: _gamePictureBytes == null
                     ? const Icon(Icons.add, color: Colors.white)
-                    : Image.file(
-                        _gamePictureFile!,
+                    : Image.memory(
+                        _gamePictureBytes!,
                         fit: BoxFit.cover,
                       ),
               ),
