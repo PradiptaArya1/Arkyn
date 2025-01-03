@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyGame extends StatefulWidget {
+  const MyGame({super.key});
+
   @override
   _MyGameState createState() => _MyGameState();
 }
@@ -27,7 +29,7 @@ class _MyGameState extends State<MyGame> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.menu, color: Colors.white),
+            icon: const Icon(Icons.menu, color: Colors.white),
             onPressed: () {},
           ),
         ],
@@ -43,7 +45,7 @@ class _MyGameState extends State<MyGame> {
                 color: Colors.grey.shade400,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: TextField(
+              child: const TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
                   border: InputBorder.none,
@@ -85,8 +87,8 @@ class _MyGameState extends State<MyGame> {
                             120, // Menyesuaikan tinggi gambar agar lebih kecil
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Rp 159.999',
                         style: TextStyle(

@@ -7,6 +7,8 @@ import '../../widgets/category_box.dart';
 import '../widgets/buy_button.dart';
 
 class GameDetailScreen extends StatefulWidget {
+  const GameDetailScreen({super.key});
+
   get game => null;
 
   @override
@@ -30,7 +32,7 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  HomeScreen()), // Ganti dengan HomeScreen yang benar
+                  const HomeScreen()), // Ganti dengan HomeScreen yang benar
         );
         break;
       case 1:
@@ -39,14 +41,14 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  FriendsScreen()), // Ganti dengan FriendsScreen yang benar
+                  const FriendsScreen()), // Ganti dengan FriendsScreen yang benar
         );
         break;
       case 2:
         // Navigasi ke LibraryScreen
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => LibraryScreen()),
+          MaterialPageRoute(builder: (context) => const LibraryScreen()),
         );
         break;
       case 3:
@@ -55,7 +57,7 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  ProfileScreen()), // Ganti dengan ProfileScreen yang benar
+                  const ProfileScreen()), // Ganti dengan ProfileScreen yang benar
         );
         break;
     }
@@ -64,22 +66,22 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF1B2838), // Set background color to #FF1B2838
+      backgroundColor: const Color(0xFF1B2838), // Set background color to #FF1B2838
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context); // Kembali ke layar sebelumnya
           },
         ),
-        title: Text("Ghost of Tsushima DIRECTOR'S CUT"),
-        titleTextStyle: TextStyle(color: Colors.white), // Text warna putih
-        iconTheme: IconThemeData(color: Colors.white), // Ikon berwarna putih
+        title: const Text("Ghost of Tsushima DIRECTOR'S CUT"),
+        titleTextStyle: const TextStyle(color: Colors.white), // Text warna putih
+        iconTheme: const IconThemeData(color: Colors.white), // Ikon berwarna putih
         backgroundColor:
-            Color(0xFF1B2838), // Ganti warna latar belakang navbar atas
+            const Color(0xFF1B2838), // Ganti warna latar belakang navbar atas
         actions: [
           IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () {},
           ),
         ],
@@ -99,19 +101,19 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 width: double.infinity,
-                color: Color(0xFF2A475E),
-                padding: EdgeInsets.all(16),
-                child: Text(
+                color: const Color(0xFF2A475E),
+                padding: const EdgeInsets.all(16),
+                child: const Text(
                   "Developer : Sucker Punch Productions",
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20.0),
-                child: Text(
+                margin: const EdgeInsets.only(top: 20.0),
+                child: const Text(
                   "About this game",
                   style: TextStyle(
                     color: Colors.white,
@@ -120,28 +122,28 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Color(0xFF171A21),
+                  color: const Color(0xFF171A21),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Text(
+                child: const Text(
                   "In the late 13th century, the Mongol empire has laid waste to entire nations...",
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 "Category",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
-              Row(
+              const SizedBox(height: 8),
+              const Row(
                 children: [
                   CategoryBox(label: "Open World"),
                   SizedBox(width: 10),
@@ -150,31 +152,31 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
                   CategoryBox(label: "Adventure"),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Color(0xFF2A475E),
+                  color: const Color(0xFF2A475E),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Ghost of Tsushima DIRECTOR'S CUT",
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: Color(0xFF212A3E),
+                            color: const Color(0xFF212A3E),
                             borderRadius: BorderRadius.circular(4),
                           ),
-                          child: Text(
+                          child: const Text(
                             "Rp 879 000",
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
@@ -191,14 +193,14 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF171A21),
+        backgroundColor: const Color(0xFF171A21),
         selectedItemColor:
             Colors.grey, // Set warna item yang dipilih menjadi grey
         unselectedItemColor:
             Colors.grey, // Set warna item yang tidak dipilih menjadi grey
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart), label: 'Home'),
           BottomNavigationBarItem(

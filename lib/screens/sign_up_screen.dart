@@ -33,7 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
 
     // Simulasi respons berhasil
-    final bool isSignUpSuccess = true;
+    const bool isSignUpSuccess = true;
 
     if (isSignUpSuccess) {
       Navigator.pop(

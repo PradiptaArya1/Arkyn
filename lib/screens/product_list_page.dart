@@ -4,7 +4,7 @@ import '../models/game/content_model.dart';
 class ProductListPage extends StatelessWidget {
   final List<ContentModel> productList;
 
-  ProductListPage({required this.productList});
+  const ProductListPage({super.key, required this.productList});
 
   @override
   Widget build(BuildContext context) {

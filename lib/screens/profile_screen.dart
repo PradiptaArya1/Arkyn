@@ -4,14 +4,14 @@ import 'upload_game.dart'; // Impor file upload_game.dart
 import 'edit_profile.dart';
 import '../models/game/content_model.dart';
 
-void main() => runApp(ProfileApp());
+void main() => runApp(const ProfileApp());
 
 class ProfileApp extends StatelessWidget {
   const ProfileApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ProfileScreen(),
     );

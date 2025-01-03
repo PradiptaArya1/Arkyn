@@ -40,7 +40,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
       case 3:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => ProfileScreen()),
+          MaterialPageRoute(builder: (context) => const ProfileScreen()),
         );
         break;
     }
@@ -112,7 +112,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => ProfileScreen()),
+                      MaterialPageRoute(builder: (context) => const ProfileScreen()),
                     );
                   },
                 ),
@@ -128,7 +128,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => SignInScreen()),
+                    MaterialPageRoute(builder: (context) => const SignInScreen()),
                   );
                 },
               ),

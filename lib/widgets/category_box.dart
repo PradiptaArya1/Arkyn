@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 class CategoryBox extends StatelessWidget {
   final String label;
 
-  const CategoryBox({Key? key, required this.label}) : super(key: key);
+  const CategoryBox({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Color(0xFF2A475E),
+        color: const Color(0xFF2A475E),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         label,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }

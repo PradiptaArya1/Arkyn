@@ -5,7 +5,7 @@ class GameItem extends StatelessWidget {
   final String subtitle;
   final String imageUrl;
 
-  const GameItem({
+  const GameItem({super.key, 
     required this.title,
     required this.subtitle,
     required this.imageUrl,
@@ -25,14 +25,14 @@ class GameItem extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Text(
             title,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           Text(
             subtitle,
-            style: TextStyle(color: Colors.white70),
+            style: const TextStyle(color: Colors.white70),
           ),
         ],
       ),

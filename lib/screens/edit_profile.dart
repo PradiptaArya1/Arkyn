@@ -161,12 +161,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     // Contoh logika untuk menyimpan data
                     if (name.isNotEmpty && about.isNotEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Profile saved!')),
+                        const SnackBar(content: Text('Profile saved!')),
                       );
                       Navigator.pop(context); // Kembali ke layar sebelumnya
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Please fill out all fields')),
+                        const SnackBar(content: Text('Please fill out all fields')),
                       );
                     }
                   },

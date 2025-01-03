@@ -6,8 +6,8 @@ class DetailScreen extends StatelessWidget {
   final Game game;
 
   // Constructor to receive the game object
-  DetailScreen(
-      {required this.game,
+  const DetailScreen(
+      {super.key, required this.game,
       required String title,
       required String image,
       required String description,
